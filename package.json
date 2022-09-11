@@ -1,0 +1,42 @@
+{
+  "name": "apirest",
+  "version": "1.0.0",
+  "description": "A simple API Rest Express Mongo TS",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon",
+    "build": "npx tsc"
+  },
+  "keywords": [
+    "API",
+    "Mongo",
+    "Express",
+    "Typescript"
+  ],
+  "author": "André Luiz Barros",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "mongoose": "^6.6.0",
+    "winston": "^3.8.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.13",
+    "@types/mongodb": "^4.0.7",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^18.7.16",
+    "@types/nodemon": "^1.19.2",
+    "@types/winston": "^2.4.4",
+    "@types/bcrypt": "^5.0.0",
+    "@types/jsonwebtoken": "^8.5.9",
+    "nodemon": "^2.0.19",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.3"
+  }
+}
