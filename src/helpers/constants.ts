@@ -3,3 +3,8 @@ export const configToken = {
     issuer: "Bakers",
     audience: "Bakers"
 }
+
+export const configFileUserAtDirectory = {
+    name: "Profile",
+    entity: "User"
+};

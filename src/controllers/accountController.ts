@@ -5,7 +5,7 @@ import { AccountServiceImpl } from "../services/account/accountServiceImpl";
 import { AccountServiceInterface } from "../services/account/accountServiceInterface";
 import { LoginVO } from "../viewObjects/account/LoginVO";
 
-class AcountController {
+class AccountController {
     public async login(req: Request, res: Response) {
         try {
             logger.info("Acessando endpoint: POST /account/login");
@@ -35,6 +35,7 @@ class AcountController {
                     .json(buildApiResponse(false, 400, result.message));
             }
 
+            logger.info("AccountController login - Login efeutado com sucesso " + loginVO.username);
             return res
                 .status(200)
                 .json(
@@ -62,3 +63,5 @@ class AcountController {
         }
     }
 }
+
+export const accountController = new AccountController();

@@ -1,7 +1,7 @@
 import { FileVO } from "../utils/FileVO"
 
-export interface SaveUserVO {
-    id: any,
+export interface GetUserVO {
+    _id: any,
     firstname: string,
     lastname?: string,
     username: string,

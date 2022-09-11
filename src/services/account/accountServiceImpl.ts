@@ -1,6 +1,6 @@
 import { buildResult } from "../../helpers/staticMethods";
 import logger from "../../middlewares/logger";
-import { UserRepositoryImpl } from "../../repositories/user/UserRepositoryImpl";
+import { UserRepositoryImpl } from "../../repositories/user/userRepositoryImpl";
 import { UserRepositoryInterface } from "../../repositories/user/userRepositoryInterface";
 import { LoginVO } from "../../viewObjects/account/LoginVO";
 import { ResultVO } from "../../viewObjects/utils/ResultVO";
@@ -21,7 +21,7 @@ export class AccountServiceImpl implements AccountServiceInterface {
     public async login(loginVO: LoginVO): Promise<ResultVO> {
         try {
             const userSave = await this.userRepo.getByUsername(loginVO.username);
-            if (!userSave) {
+            if (!userSave || userSave.username != loginVO.username) {
                 logger.error(`AccountService login - Usuário não encontrado: ${loginVO.username}`);
                 return buildResult(false, "Usuário não encontrado");
             }
@@ -31,7 +31,7 @@ export class AccountServiceImpl implements AccountServiceInterface {
                 return buildResult(false, "Senha incorreta");
             }
             const payloadToken: DecodedVO = {
-                id: String(userSave._id),
+                _id: String(userSave._id),
                 username: String(userSave.username),
                 roles: userSave.roles
             };

@@ -65,6 +65,52 @@ class UserController {
                 );
         }
     }
+
+    public async getAll(req: Request, res: Response) {
+        try {
+            const userService: UserServiceInterface = new UserServiceImpl();
+
+            logger.info("Acessado enpoint: GET /user");
+            const usersVOs = await userService.getAll();
+
+            if (!usersVOs) {
+                return res
+                    .status(404)
+                    .json(
+                        buildApiResponse(
+                            true,
+                            404,
+                            "Não há usuários para listar"
+                        )
+                    );
+            }
+
+            return res
+                .status(200)
+                .json(
+                    buildApiResponse(
+                        true,
+                        200,
+                        "Usuários listados com sucesso",
+                        usersVOs
+                    )
+                );
+        } catch (err: any) {
+            logger.error(
+                "UserController getAll - Falha inesperada ao buscar lista de todos osusuários: " +
+                    err
+            );
+            return res
+                .status(500)
+                .json(
+                    buildApiResponse(
+                        false,
+                        500,
+                        "Falha inesperada ao listar todos os usuários"
+                    )
+                );
+        }
+    }
 }
 
 export const userController = new UserController();

@@ -5,6 +5,7 @@ import "./database/connection";
 
 import routerAccount from "./routes/accountRouter";
 import routerUser from "./routes/userRouter";
+import routerStatic from "./routes/staticRoutes";
 
 export class App {
     public server: express.Application;
@@ -28,5 +29,6 @@ export class App {
     private routes() {
         this.server.use(routerAccount);
         this.server.use(routerUser);
+        this.server.use(routerStatic);
     }
 }

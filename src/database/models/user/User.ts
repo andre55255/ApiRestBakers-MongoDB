@@ -1,5 +1,5 @@
 import { Schema, model } from "mongoose";
-import { IUserModel } from "./IUserModel";
+import { UserModel } from "./UserModel";
 
 const UserSchema = new Schema({
     firstname: {
@@ -39,6 +39,6 @@ const UserSchema = new Schema({
     }
 });
 
-const UserModel = model<IUserModel>("users", UserSchema);
+const UserModel = model<UserModel>("users", UserSchema);
 
 export default UserModel;

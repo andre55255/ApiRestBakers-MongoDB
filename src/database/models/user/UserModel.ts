@@ -1,4 +1,4 @@
-export interface IUserModel {
+export interface UserModel {
     _id?: string,
     firstname: string | String,
     lastname?: string | String,

@@ -1,5 +1,5 @@
 export interface DecodedVO {
-    id: string,
+    _id: string,
     username: string,
     roles: Array<string> | Array<String> | undefined,
     iat?: Number | number,
