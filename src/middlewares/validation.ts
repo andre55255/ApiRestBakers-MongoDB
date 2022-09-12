@@ -14,7 +14,7 @@ export const validationRequest = async (
             .map((err) => {
                 return err.msg;
             })
-            .join(",");
+            .join(", ");
         return res.status(400).json(buildApiResponse(false, 400, message));
     }
 
